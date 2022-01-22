@@ -13,3 +13,12 @@ server {
         proxy_pass http://jenkins:8080;
     }
 }
+
+server {
+    listen 9443;
+    server_name  portui.${NGINX_HOST};
+
+    location / {
+        proxy_pass http://portainer:9443;
+    }
+}

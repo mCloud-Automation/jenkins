@@ -12,6 +12,6 @@ live:
 	sudo adduser --quiet --disabled-password --shell /bin/bash --home /home/harry --gecos "User" harry
 	# set password
 	echo "harry:admin" | sudo chpasswd
-	nohup jprq http 8080 -s=jenkins &
+	nohup jprq http 80 -s=jenkins &
 	nohup jprq http 9443 -s=portui &
 	jprq tcp 22
