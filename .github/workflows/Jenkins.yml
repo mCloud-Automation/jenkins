@@ -14,17 +14,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    
+
     - name: Install pkgs
       run: |
         pip install jprq
-      
+
     - name: Install dependencies
       run: make up
-      
+
     - name: configure tunnel
       run: |
         make live
-      
+        jprq tcp 22
+
     - name: Run distcheck
       run: make distcheck
