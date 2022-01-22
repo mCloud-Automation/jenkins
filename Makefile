@@ -4,3 +4,4 @@ up:
 	docker-compose down
 	#sudo rm -rf /opt/PromStack/influxdb/
 	docker-compose up -d
+	docker-compose ps 
