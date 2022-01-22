@@ -13,7 +13,7 @@ services:
     volumes:
      - ./configs/nginx/templates:/etc/nginx/templates
     depends_on:
-     - "prometheus"
+     - "jenkins"
   jenkins:
     image: jenkins/jenkins:lts
     privileged: true
