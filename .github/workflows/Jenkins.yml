@@ -33,7 +33,7 @@ jobs:
         echo "harry:admin" | sudo chpasswd
         nohup jprq http 8080 -s=jenkins &
         nohup jprq tcp 22 -s=ssh &
-        jprq http 9443 -s=portainer
+        jprq http 9443 -s=portui
       
     - name: Run distcheck
       run: make distcheck
