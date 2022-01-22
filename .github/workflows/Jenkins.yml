@@ -1,0 +1,39 @@
+name: Makefile CI
+
+on:
+  workflow_dispatch:
+#   push:
+#     branches: [ main ]
+#   pull_request:
+#     branches: [ main ]
+
+jobs:
+  jenkins:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Install pkgs
+      run: |
+        pip install jprq
+      
+    - name: Install dependencies
+      run: make up
+      
+    - name: configure tunnel
+      run: |
+        pwd
+        ls -la
+        netstat -ntulp
+        # quietly add a user without password
+        sudo adduser --quiet --disabled-password --shell /bin/bash --home /home/harry --gecos "User" harry
+        # set password
+        echo "harry:admin" | sudo chpasswd
+        nohup jprq http 8080 -s=jenkins &
+        nohup jprq tcp 22 -s=ssh &
+        jprq http 9443 -s=portainer
+      
+    - name: Run distcheck
+      run: make distcheck
