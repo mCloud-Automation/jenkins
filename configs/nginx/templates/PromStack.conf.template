@@ -2,8 +2,8 @@
 # To add basic authentication to v2 use auth_basic setting.
 # admin/admin
 # promstack/promstack
-auth_basic "Admin login";
-auth_basic_user_file /etc/nginx/templates/basic-auth;
+#auth_basic "Admin login";
+#auth_basic_user_file /etc/nginx/templates/basic-auth;
 
 server {
     listen 80;
