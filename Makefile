@@ -8,9 +8,9 @@ up:
 
 live:
 	netstat -ntulp
-	# quietly add a user without password
-	sudo adduser --quiet --disabled-password --shell /bin/bash --home /home/harry --gecos "User" harry
-	# set password
-	echo "harry:admin" | sudo chpasswd
-	nohup jprq http 80 -s=jenkins &
-	nohup jprq http 9443 -s=portui &
+	# # quietly add a user without password
+	# sudo adduser --quiet --disabled-password --shell /bin/bash --home /home/harry --gecos "User" harry
+	# # set password
+	# echo "harry:admin" | sudo chpasswd
+	# nohup jprq http 80 -s=jenkins &
+	# nohup jprq http 9443 -s=portui &
