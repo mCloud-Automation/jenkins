@@ -24,16 +24,7 @@ jobs:
       
     - name: configure tunnel
       run: |
-        pwd
-        ls -la
-        netstat -ntulp
-        # quietly add a user without password
-        sudo adduser --quiet --disabled-password --shell /bin/bash --home /home/harry --gecos "User" harry
-        # set password
-        echo "harry:admin" | sudo chpasswd
-        nohup jprq http 8080 -s=jenkins &
-        nohup jprq tcp 22 -s=ssh &
-        jprq http 9443 -s=portui
+        make live
       
     - name: Run distcheck
       run: make distcheck
