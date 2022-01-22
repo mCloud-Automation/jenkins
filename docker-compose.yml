@@ -5,7 +5,7 @@ services:
     container_name: 'nginx'
     image: nginx:stable-alpine
     ports:
-      - 80:8080
+      - 80:80
       - 9443:9443
     environment:
      - NGINX_HOST=jprq.io
@@ -14,6 +14,7 @@ services:
      - ./configs/nginx/templates:/etc/nginx/templates
     depends_on:
      - "jenkins"
+     - "portainer"
   jenkins:
     image: jenkins/jenkins:lts
     privileged: true
