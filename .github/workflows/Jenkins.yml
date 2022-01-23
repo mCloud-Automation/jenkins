@@ -19,13 +19,13 @@ jobs:
       run: |
         pip install jprq
 
-    - name: Install dependencies
-      run: make up
+    # - name: Install dependencies
+    #   run: make up
 
-    - name: configure tunnel
-      run: |
-        make live
-        jprq http 80 -s=jenkins
+    # - name: configure tunnel
+    #   run: |
+    #     make live
+    #     jprq http 80 -s=jenkins
 
-    - name: Run distcheck
-      run: make distcheck
+    - name: Run portainer
+      run: make portainer
